@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: cachers_development
+
+test:
+  adapter: postgresql
+  database: cachers_test
