@@ -48,8 +48,6 @@ class LikeCacher < Cachers::Base
 end
 ```
 
-NOTE: Updates work automagically, no need to add another method.
-
 You may like to delegate some methods directly to the cacher:
 ```ruby
 class User < ActiveRecord::Base
@@ -76,6 +74,8 @@ class UserCacher < Cachers::Base
 
 end
 ```
+
+NOTE: Updates work automagically, no need to add another method.
 
 ## Contributing
 
