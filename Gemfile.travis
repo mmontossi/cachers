@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', ENV['RAILS']
+gem 'redis', '~> 3.2'
 
 platforms :ruby do
   case ENV['DB']
