@@ -33,12 +33,10 @@ class LikeCacher < Cachers::Base
 
   def cache
     $redis.sadd users_key, record.product.id
-    $redis.sadd products_key, record.user.id
   end
 
   def uncache
     $redis.srem users_key, record.product.id
-    $redis.srem products_key, record.user.id
   end
 
   private
@@ -47,18 +45,36 @@ class LikeCacher < Cachers::Base
     "users/#{record.user.id}/likes"
   end
 
-  def products_key
-    "products/#{record.product.id}/likes"
-  end
-
 end
 ```
 
 NOTE: Updates work automagically, no need to add another method.
 
-At any time you can access the cacher using:
+You may like to delegate some methods directly to the cacher:
 ```ruby
-like.cacher.some_method
+class User < ActiveRecord::Base
+
+  ...
+
+  delegate :likes?, to: :cacher
+
+end
+
+class UserCacher < Cachers::Base
+
+  ...
+
+  def likes?(product)
+    $redis.sismember likes_key, product.id
+  end
+
+  private
+
+  def likes_key
+    "users/#{record.id}/likes"
+  end
+
+end
 ```
 
 ## Contributing
