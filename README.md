@@ -32,16 +32,16 @@ Add the logic to the cache and uncache methods:
 class LikeCacher < Cachers::Base
 
   def cache
-    $redis.sadd users_key, record.product.id
+    $redis.sadd key, record.product.id
   end
 
   def uncache
-    $redis.srem users_key, record.product.id
+    $redis.srem key, record.product.id
   end
 
   private
 
-  def users_key
+  def key
     "users/#{record.user.id}/likes"
   end
 
@@ -65,12 +65,12 @@ class UserCacher < Cachers::Base
   ...
 
   def likes?(product)
-    $redis.sismember likes_key, product.id
+    $redis.sismember key, product.id
   end
 
   private
 
-  def likes_key
+  def key
     "users/#{record.id}/likes"
   end
 
