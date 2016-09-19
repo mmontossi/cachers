@@ -22,7 +22,7 @@ $ bundle
 
 ## Usage
 
-Work with your model as usual and you want to cache some part generate a cacher like this:
+Work with your models as usual and if you want to cache something generate a cacher like this:
 ```
 bundle exec rails g cacher like
 ```
@@ -54,7 +54,12 @@ class LikeCacher < Cachers::Base
 end
 ```
 
-NOTE: Updates happen automagically, no need to add another method.
+NOTE: Updates work automagically, no need to add another method.
+
+At any time you can access the cacher using:
+```ruby
+like.cacher.some_method
+```
 
 ## Contributing
 
