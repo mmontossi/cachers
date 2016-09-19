@@ -30,7 +30,7 @@ module Cachers
     end
 
     def self.inherited(subclass)
-      if model = (subclass.name.remove(/Cacher$/).constantize rescue nil)
+      if model = (subclass.name.sub(/Cacher$/, '').constantize rescue nil)
         model.include Concern
         model.class_eval do
           define_method :cacher do
