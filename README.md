@@ -20,6 +20,41 @@ Then bundle:
 $ bundle
 ```
 
+## Usage
+
+Work with your model as usual and you want to cache some part generate a cacher like this:
+```
+bundle exec rails g cacher like
+```
+
+Add the logic to the cache and uncache methods:
+```ruby
+class LikeCacher < Cachers::Base
+
+  def cache
+    $redis.sadd users_key, record.product.id
+    $redis.sadd products_key, record.user.id
+  end
+
+  def uncache
+    $redis.srem users_key, record.product.id
+    $redis.srem products_key, record.user.id
+  end
+
+  private
+
+  def users_key
+    "users/#{record.user.id}/likes"
+  end
+
+  def products_key
+    "products/#{record.product.id}/likes"
+  end
+
+end
+```
+
+NOTE: Updates happen automagically, no need to add another method.
 
 ## Contributing
 
