@@ -1,7 +1,6 @@
 source 'http://rubygems.org'
 
 gem 'rails', ENV['RAILS']
-gem 'mocha', '~> 1.1'
 
 platforms :ruby do
   case ENV['DB']
