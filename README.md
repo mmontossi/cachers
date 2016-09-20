@@ -75,7 +75,7 @@ class UserCacher < Cachers::Base
 end
 ```
 
-NOTE: Updates work automagically when records are saved, there is no need to add a recache method to replace values.
+NOTE: Updates work automagically when records are saved, there is no need to add a method to replace values.
 
 ## Contributing
 
