@@ -7,7 +7,7 @@ class TasksTest < ActiveSupport::TestCase
     Rake::Task.define_task :environment
   end
 
-  test 'tasks' do
+  test 'all' do
     users = %w(mike john).map do |name|
       User.create name: name
     end

@@ -11,10 +11,3 @@ Minitest.backtrace_filter = Minitest::BacktraceFilter.new
 
 # Load support files
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
-
-# Clear redis database
-class ActiveSupport::TestCase
-  def teardown
-    $redis.flushall
-  end
-end

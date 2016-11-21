@@ -1,4 +1,4 @@
-require 'rails/generators/named_base'
+require 'rails/generators'
 
 module Cachers
   module Generators

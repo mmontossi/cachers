@@ -1,15 +1,15 @@
 namespace :cachers do
-  desc 'Finds each model cacheable and cache all his records.'
+  desc 'Cache all records.'
   task cache: :environment do
     Cachers.cache
   end
 
-  desc 'Finds each model cacheable and recache all his records.'
+  desc 'Recache all records.'
   task recache: :environment do
     Cachers.recache
   end
 
-  desc 'Finds each model cacheable and uncache all his records.'
+  desc 'Uncache all records.'
   task uncache: :environment do
     Cachers.uncache
   end

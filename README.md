@@ -5,8 +5,15 @@
 
 # Cachers
 
-Extracts models cache logic into separate classes in rails.
+Dedicated classes to abstract cache logic in rails.
 
+## Why
+
+I did this gem to:
+
+- Prevent models to have too much code.
+- Have a convention of how to use cache in models.
+- Increase atomization in complex projects.
 
 ## Install
 
@@ -24,7 +31,7 @@ $ bundle
 
 Work with your models as usual and if you want to cache something generate a cacher like this:
 ```
-bundle exec rails g cacher like
+$ bundle exec rails g cacher like
 ```
 
 Add the logic to the cache and uncache methods:
@@ -76,10 +83,6 @@ end
 ```
 
 NOTE: Updates work automagically when records are saved, there is no need to add a method to replace values.
-
-## Contributing
-
-Because we've limited resources we'll mainly add features and keep a compatibility range close to what we need in our projects. However, contributions are more than welcome if someone wants to make any improvement.
 
 ## Credits
 
