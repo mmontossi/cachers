@@ -4,16 +4,16 @@ class RecordTest < ActiveSupport::TestCase
 
   test 'callbacks' do
     user = User.create(name: 'mike')
-    user.run_callbacks :commit
+    user.cache
     key = "users/#{user.id}"
     assert_equal 'mike', $redis.get(key)
 
     user.update name: 'john'
-    user.run_callbacks :commit
+    user.recache
     assert_equal 'john', $redis.get(key)
 
     user.destroy
-    user.run_callbacks :commit
+    user.uncache
     assert_nil $redis.get(key)
   end
 

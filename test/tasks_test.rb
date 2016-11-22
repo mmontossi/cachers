@@ -11,18 +11,24 @@ class TasksTest < ActiveSupport::TestCase
     users = %w(mike john).map do |name|
       User.create name: name
     end
-    Rake::Task['cachers:cache'].invoke
+    silence_stream(STDOUT) do
+      Rake::Task['cachers:cache'].invoke
+    end
     users.each do |user|
       assert_equal user.name, $redis.get("users/#{user.id}")
     end
 
     $redis.flushall
-    Rake::Task['cachers:recache'].invoke
+    silence_stream(STDOUT) do
+      Rake::Task['cachers:recache'].invoke
+    end
     users.each do |user|
       assert_equal user.name, $redis.get("users/#{user.id}")
     end
 
-    Rake::Task['cachers:uncache'].invoke
+    silence_stream(STDOUT) do
+      Rake::Task['cachers:uncache'].invoke
+    end
     assert_equal 0, $redis.keys.size
   end
 
