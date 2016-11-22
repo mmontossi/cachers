@@ -1,7 +1,7 @@
 class UserCacher < Cachers::Base
 
   def cache
-    $redis.set key, record.name
+    $redis.set key, record.id
   end
 
   def uncache
@@ -11,7 +11,7 @@ class UserCacher < Cachers::Base
   private
 
   def key
-    "users/#{record.id}"
+    "users/#{record.name}"
   end
 
 end
