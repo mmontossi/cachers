@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.name        = 'cachers'
   s.version     = Cachers::VERSION
   s.authors     = ['mmontossi']
-  s.email       = ['mmontossi@buyin.io']
+  s.email       = ['mmontossi@gmail.com']
   s.homepage    = 'https://github.com/mmontossi/cachers'
   s.summary     = 'Cachers for rails'
   s.description = 'Dedicated classes to abstract cache logic in rails.'
