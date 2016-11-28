@@ -59,7 +59,7 @@ end
 
 NOTE: Updates work automatically when records are saved, there is no need to add a method to replace values.
 
-### Custom methods
+### Methods
 
 If you need to manually cache, recache, or uncache a record:
 ```ruby
