@@ -78,7 +78,7 @@ class UserCacher < Cachers::Base
 end
 ```
 
-Delegate the methods you want to call publicly:
+Expose the methods you want call publicly:
 ```ruby
 class User < ActiveRecord::Base
 
