@@ -27,7 +27,7 @@ Then bundle:
 $ bundle
 ```
 
-## Configuration 
+## Usage
 
 Work with your models as usual and if you want to cache something generate a cacher like this:
 ```
@@ -54,9 +54,8 @@ class LikeCacher < Cachers::Base
 
 end
 ```
-NOTE: Updates work automatically when records are saved, there is no need to add a method to replace values.
 
-## Usage
+NOTE: Updates work automatically when records are saved, there is no need to add a method to replace values.
 
 If you need to manually cache, recache, or uncache a record:
 ```ruby
