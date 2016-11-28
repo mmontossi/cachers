@@ -65,7 +65,7 @@ like.recache
 like.uncache
 ```
 
-If you add custom methods to the cacher, you can access them using the cacher attribute:
+If you add custom methods to the cacher:
 ```ruby
 class UserCacher < Cachers::Base
 
@@ -80,11 +80,14 @@ class UserCacher < Cachers::Base
   end
 
 end
+```
 
+The method will be available within the cacher attribute:
+```ruby
 user.cacher.likes? product
 ```
 
-But you probably may want to delegate methods directly to the cacher:
+But you prefer, you can delegate the methods directly to the cacher:
 ```ruby
 class User < ActiveRecord::Base
 
@@ -92,6 +95,11 @@ class User < ActiveRecord::Base
 
 end
 
+user.likes? product
+```
+
+Then the method will be available directly in the model instance:
+```ruby
 user.likes? product
 ```
 
