@@ -31,7 +31,7 @@ $ bundle
 
 ### Definitions
 
-Work with your models as usual and if you want to cache something generate a cacher like this:
+Generate a cacher for a model:
 ```
 $ bundle exec rails g cacher like
 ```
@@ -59,16 +59,9 @@ end
 
 NOTE: Updates work automatically when records are saved, there is no need to add a method to replace values.
 
-### Methods
+### Custom methods
 
-If you need to manually cache, recache, or uncache a record:
-```ruby
-like.cache
-like.recache
-like.uncache
-```
-
-You probably want to add some other methods related to the cache:
+You may want to add some other methods related to the cache:
 ```ruby
 class UserCacher < Cachers::Base
 
