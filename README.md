@@ -94,7 +94,7 @@ user.likes? product
 
 ### Cache management
 
-You can use this methods to manually control the cache:
+If you want to manually control the cache, you can use this methods:
 ```ruby
 user.cache
 user.recache
