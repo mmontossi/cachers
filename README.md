@@ -58,19 +58,16 @@ NOTE: Updates work automatically when records are saved, there is no need to add
 
 ## Usage
 
-You can delegate methods directly to the cacher:
+If you need to manually cache, recache, or uncache a record:
 ```ruby
-class User < ActiveRecord::Base
+like.cache
+like.recache
+like.uncache
+```
 
-  ...
-
-  delegate :likes?, to: :cacher
-
-end
-
+If you add custom methods to the cacher, you can access them using the cacher attribute:
+```ruby
 class UserCacher < Cachers::Base
-
-  ...
 
   def likes?(product)
     $redis.sismember key, product.id
@@ -83,6 +80,19 @@ class UserCacher < Cachers::Base
   end
 
 end
+
+user.cacher.likes? product
+```
+
+But you probably may want to delegate methods directly to the cacher:
+```ruby
+class User < ActiveRecord::Base
+
+  delegate :likes?, to: :cacher
+
+end
+
+user.likes? product
 ```
 
 ## Credits
