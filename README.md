@@ -78,12 +78,28 @@ class UserCacher < Cachers::Base
 end
 ```
 
-Those methods will be available within the cacher attribute:
+Delegate the methods you want to call publicly:
 ```ruby
-user.cacher.likes? product
+class User < ActiveRecord::Base
+
+  delegate :likes?, to: :cacher
+
+end
 ```
 
-NOTE: If you prefer, you can delegate the methods in the model to avoid typing cacher every time.
+Now you can call those methods directly:
+```ruby
+user.likes? product
+```
+
+### Cache management
+
+You can use this methods to manually controll the cache:
+```ruby
+user.cache
+user.recache
+user.uncache
+```
 
 ## Credits
 
