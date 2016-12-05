@@ -1,4 +1,3 @@
-require 'generators/cacher_generator'
 require 'cachers/base'
 require 'cachers/concern'
 require 'cachers/railtie'
