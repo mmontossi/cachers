@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.email       = ['mmontossi@gmail.com']
   s.homepage    = 'https://github.com/mmontossi/cachers'
   s.summary     = 'Cachers for rails'
-  s.description = 'Dedicated classes to abstract cache logic in rails.'
+  s.description = 'Dedicated classes to isolate redis logic in rails.'
   s.license     = 'MIT'
 
   s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.rdoc']

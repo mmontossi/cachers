@@ -5,7 +5,7 @@
 
 # Cachers
 
-Dedicated classes to abstract cache logic in rails.
+Dedicated classes to isolate redis logic in rails.
 
 ## Why
 

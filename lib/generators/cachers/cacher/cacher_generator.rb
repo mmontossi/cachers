@@ -2,7 +2,7 @@ require 'rails/generators'
 
 module Cachers
   module Generators
-    class CacherGenerator < ::Rails::Generators::NamedBase
+    class CacherGenerator < Rails::Generators::NamedBase
 
       source_root File.expand_path('../templates', __FILE__)
 
