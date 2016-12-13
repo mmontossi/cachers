@@ -4,7 +4,6 @@ require 'rails/all'
 
 Bundler.require(*Rails.groups)
 require 'cachers'
-require 'redis'
 
 module Dummy
   class Application < Rails::Application

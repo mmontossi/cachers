@@ -41,11 +41,11 @@ Add the logic to the cache and uncache methods:
 class LikeCacher < Cachers::Base
 
   def cache
-    $redis.sadd key, record.product.id
+    sadd key, record.product.id
   end
 
   def uncache
-    $redis.srem key, record.product.id
+    srem key, record.product.id
   end
 
   private
@@ -57,7 +57,7 @@ class LikeCacher < Cachers::Base
 end
 ```
 
-NOTE: Updates work automatically when records are saved, there is no need to add a method to replace values.
+NOTE: Updates work automatically, there is no need to add a method to replace values.
 
 ### Custom methods
 
@@ -66,7 +66,7 @@ You may want to add some other methods related to the cache:
 class UserCacher < Cachers::Base
 
   def likes?(product)
-    $redis.sismember key, product.id
+    sismember key, product.id
   end
 
   private
@@ -78,16 +78,7 @@ class UserCacher < Cachers::Base
 end
 ```
 
-Expose the methods you want call publicly:
-```ruby
-class User < ActiveRecord::Base
-
-  delegate :likes?, to: :cacher
-
-end
-```
-
-Now you can call those methods directly:
+The public methods will be available to call directly from the model:
 ```ruby
 user.likes? product
 ```
@@ -99,6 +90,13 @@ If you want to manually control the cache, you can use this methods:
 user.cache
 user.recache
 user.uncache
+```
+
+Or to it for all cacheable records:
+```
+$ bundle exec rake cachers:cache
+$ bundle exec rake cachers:recache
+$ bundle exec rake cachers:uncache
 ```
 
 ## Credits

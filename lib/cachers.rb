@@ -1,10 +1,19 @@
+require 'cachers/extensions/active_record/base'
 require 'cachers/base'
+require 'cachers/delegation'
 require 'cachers/concern'
 require 'cachers/railtie'
 require 'cachers/version'
 
 module Cachers
   class << self
+
+    def client
+      @client ||= begin
+        require 'redis'
+        Redis.new YAML.load_file("#{Rails.root}/config/redis.yml")[Rails.env]
+      end
+    end
 
     def models
       if Rails.configuration.cache_classes == false

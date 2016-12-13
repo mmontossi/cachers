@@ -1,6 +1,7 @@
 require 'test_helper'
 require 'rails/generators'
-require 'generators/cacher/cacher_generator'
+require 'generators/cachers/cacher/cacher_generator'
+require 'generators/cachers/install/install_generator'
 
 class GeneratorsTest < Rails::Generators::TestCase
   destination Rails.root.join('tmp')
@@ -13,6 +14,12 @@ class GeneratorsTest < Rails::Generators::TestCase
     self.class.tests Cachers::Generators::CacherGenerator
     run_generator %w(user)
     assert_file 'app/cachers/user_cacher.rb'
+  end
+
+  test 'install' do
+    self.class.tests Cachers::Generators::InstallGenerator
+    run_generator
+    assert_file 'config/redis.yml'
   end
 
 end

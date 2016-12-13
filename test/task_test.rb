@@ -15,21 +15,21 @@ class TaskTest < ActiveSupport::TestCase
       Rake::Task['cachers:cache'].invoke
     end
     users.each do |user|
-      assert_equal user.id, $redis.get("users/#{user.name}").to_i
+      assert_equal user.id, client.get("users/#{user.name}").to_i
     end
 
-    $redis.flushall
+    client.flushall
     silence_stream(STDOUT) do
       Rake::Task['cachers:recache'].invoke
     end
     users.each do |user|
-      assert_equal user.id, $redis.get("users/#{user.name}").to_i
+      assert_equal user.id, client.get("users/#{user.name}").to_i
     end
 
     silence_stream(STDOUT) do
       Rake::Task['cachers:uncache'].invoke
     end
-    assert_equal 0, $redis.keys.size
+    assert_equal 0, client.keys.size
   end
 
 end

@@ -29,15 +29,8 @@ module Cachers
       cache
     end
 
-    def self.inherited(subclass)
-      if model = (subclass.name.sub(/Cacher$/, '').constantize rescue nil)
-        model.include Concern
-        model.class_eval do
-          define_method :cacher do
-            @cacher ||= subclass.new(self)
-          end
-        end
-      end
+    def method_missing(name, *args, &block)
+      Cachers.client.send name, *args, &block
     end
 
   end

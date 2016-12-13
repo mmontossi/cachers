@@ -7,7 +7,7 @@ module Cachers
       source_root File.expand_path('../templates', __FILE__)
 
       def create_cacher_file
-        template 'cacher.rb', "app/cachers/#{file_name}_cacher.rb"
+        template 'cacher.rb', File.join('app/cachers', class_path, "#{file_name}_cacher.rb")
       end
 
     end

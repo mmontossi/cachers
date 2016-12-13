@@ -1,11 +1,11 @@
 class UserCacher < Cachers::Base
 
   def cache
-    $redis.set key, record.id
+    set key, record.id
   end
 
   def uncache
-    $redis.del key
+    del key
   end
 
   private
