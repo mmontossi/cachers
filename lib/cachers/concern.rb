@@ -1,10 +1,7 @@
 module Cachers
   module Concern
     extend ActiveSupport::Concern
-
-    %i(include extend).each do |action|
-      send action, Delegation
-    end
+    include Delegation
 
     included do
       after_commit :cache, on: :create
@@ -17,6 +14,7 @@ module Cachers
     end
 
     module ClassMethods
+      include Delegation
 
       def cacher
         "#{name}Cacher".constantize

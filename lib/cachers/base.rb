@@ -1,6 +1,10 @@
 module Cachers
   class Base
 
+    %i(extend include).each do |action|
+      send action, Dsl
+    end
+
     attr_reader :record
 
     def initialize(record)
@@ -27,10 +31,6 @@ module Cachers
         uncache
       end
       cache
-    end
-
-    def method_missing(name, *args, &block)
-      Cachers.client.send name, *args, &block
     end
 
   end

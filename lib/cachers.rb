@@ -1,4 +1,5 @@
 require 'cachers/extensions/active_record/base'
+require 'cachers/dsl'
 require 'cachers/base'
 require 'cachers/delegation'
 require 'cachers/concern'

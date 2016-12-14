@@ -14,4 +14,11 @@ class UserCacher < Cachers::Base
     "users/#{record.name}"
   end
 
+  class << self
+
+    def cached?(user) 
+      exists "users/#{user.name}"
+    end
+
+  end
 end
