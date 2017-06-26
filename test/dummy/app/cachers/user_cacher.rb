@@ -1,7 +1,7 @@
 class UserCacher < Cachers::Base
 
   def cache
-    set key, record.id
+    set key, record.name
   end
 
   def uncache
@@ -11,13 +11,13 @@ class UserCacher < Cachers::Base
   private
 
   def key
-    "users/#{record.name}"
+    "users/#{record.name.parameterize}"
   end
 
   class << self
 
-    def cached?(user) 
-      exists "users/#{user.name}"
+    def cached?(user)
+      exists "users/#{user.name.parameterize}"
     end
 
   end

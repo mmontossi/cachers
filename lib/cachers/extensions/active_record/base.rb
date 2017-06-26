@@ -8,7 +8,7 @@ module Cachers
 
           def inherited(subclass)
             super
-            if subclass.name && File.exist?("#{Rails.root}/app/cachers/#{subclass.name.underscore}_cacher.rb")
+            if File.exist?("#{Rails.root}/app/cachers/#{subclass.name.underscore}_cacher.rb")
               subclass.include Cachers::Concern
             end
           end

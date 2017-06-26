@@ -7,7 +7,7 @@ module Cachers
       source_root File.expand_path('../templates', __FILE__)
 
       def create_configuration_file
-        copy_file 'configuration.yml', 'config/redis.yml'
+        copy_file 'redis.yml', 'config/redis.yml'
       end
 
     end
