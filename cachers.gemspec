@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.name        = 'cachers'
   s.version     = Cachers::VERSION
   s.authors     = ['mmontossi']
-  s.email       = ['mmontossi@museways.com']
-  s.homepage    = 'https://github.com/mmontossi/cachers'
+  s.email       = ['hi@museways.com']
+  s.homepage    = 'https://github.com/museways/cachers'
   s.summary     = 'Cachers for rails'
   s.description = 'Dedicated classes to isolate redis logic in rails.'
   s.license     = 'MIT'

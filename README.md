@@ -1,7 +1,7 @@
 [![Gem Version](https://badge.fury.io/rb/cachers.svg)](http://badge.fury.io/rb/cachers)
-[![Code Climate](https://codeclimate.com/github/mmontossi/cachers/badges/gpa.svg)](https://codeclimate.com/github/mmontossi/cachers)
-[![Build Status](https://travis-ci.org/mmontossi/cachers.svg)](https://travis-ci.org/mmontossi/cachers)
-[![Dependency Status](https://gemnasium.com/mmontossi/cachers.svg)](https://gemnasium.com/mmontossi/cachers)
+[![Code Climate](https://codeclimate.com/github/museways/cachers/badges/gpa.svg)](https://codeclimate.com/github/museways/cachers)
+[![Build Status](https://travis-ci.org/museways/cachers.svg)](https://travis-ci.org/museways/cachers)
+[![Dependency Status](https://gemnasium.com/museways/cachers.svg)](https://gemnasium.com/museways/cachers)
 
 # Cachers
 
@@ -107,7 +107,7 @@ I will mainly ensure compatibility to Rails, AWS, PostgreSQL, Redis, Elasticsear
 
 ## Credits
 
-This gem is maintained and funded by [mmontossi](https://github.com/mmontossi).
+This gem is maintained and funded by [museways](https://github.com/museways).
 
 ## License
 

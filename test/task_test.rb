@@ -3,8 +3,7 @@ require 'test_helper'
 class TaskTest < ActiveSupport::TestCase
 
   setup do
-    load File.expand_path('../../lib/tasks/cachers.rake', __FILE__)
-    Rake::Task.define_task :environment
+    Dummy::Application.load_tasks
   end
 
   test 'all' do
