@@ -11,7 +11,7 @@ Rails::TestUnitReporter.executable = 'bin/test'
 # Add shortcut and flush database after each test.
 class ActiveSupport::TestCase
   teardown do
-    Cachers.redis.flushall
+    redis.flushall
   end
   def redis
     Cachers.redis

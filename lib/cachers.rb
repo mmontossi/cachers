@@ -29,7 +29,6 @@ module Cachers
       define_method action do
         models.each do |model|
           model.find_each do |record|
-            puts "Running #{action} on #{model.name} ##{record.id}"
             record.send action
           end
         end
