@@ -9,7 +9,7 @@ Dedicated classes to isolate redis logic in rails.
 
 ## Why
 
-I did this gem to:
+We did this gem to:
 
 - Prevent models to have too much code.
 - Have a convention of how to use cache in models.
@@ -103,7 +103,7 @@ $ bundle exec rake cachers:uncache
 
 Any issue, pull request, comment of any kind is more than welcome!
 
-I will mainly ensure compatibility to Rails, AWS, PostgreSQL, Redis, Elasticsearch and FreeBSD. 
+We will mainly ensure compatibility to Rails, AWS, PostgreSQL, Redis, Elasticsearch and FreeBSD. 
 
 ## Credits
 
